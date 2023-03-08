@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package com.rasmijati.repository;
 
 import com.rasmijati.model.User;
@@ -20,13 +19,22 @@ public class userRepository {
     public userRepository() {
         ulist = new ArrayList<>();     //create list's object
     }
-    
-    public void create(User u){
+
+    public void create(User u) {
         this.ulist.add(u);
     }
-            
-    public List<User> show(){
+
+    public List<User> show() {
         return ulist;
     }
-    
+
+    public User findUserById(Long id) {
+        for (User u : ulist) {
+            if (u.getId().equals(id)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
 }

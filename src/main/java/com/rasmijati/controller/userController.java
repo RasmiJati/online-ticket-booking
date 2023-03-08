@@ -18,11 +18,13 @@ public class userController {
     public static void main(String[] args) {
         userRepository = new userRepository();
         User u = new User(1L, "rasmi", "rasmiasga", "684646546", "rasahgsa");
-        User u1 = new User(1L, "rasmi", "rasmiasga", "684646546", "rasahgsa");
+        User u1 = new User(2L, "rasmi", "rasmiasga", "684646546", "rasahgsa");
 
         userRepository.create(u);
         userRepository.create(u1);
 
+                
         System.out.println(userRepository.show());
+        System.out.println(userRepository.findUserById(2L));
     }
 }
