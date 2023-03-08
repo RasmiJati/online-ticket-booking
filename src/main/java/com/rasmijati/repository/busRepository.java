@@ -27,4 +27,14 @@ public class busRepository {
     public List<Bus> show() {
         return bus_list;
     }
+
+    public Bus findBusByTd(Long id) {
+        for (Bus b : bus_list) {
+            if (b.getId().equals(id)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
 }

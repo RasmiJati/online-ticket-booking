@@ -22,5 +22,6 @@ public class routeController {
         routeRepository = new routeRepository();
         routeRepository.create(r);
         System.out.println(routeRepository.show());
+        System.out.print(routeRepository.findById(2L));
     }
 }

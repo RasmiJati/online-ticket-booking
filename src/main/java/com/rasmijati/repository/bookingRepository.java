@@ -29,4 +29,13 @@ public class bookingRepository {
         return booking_list;
     }
 
+    public Booking findById(Long id) {
+        for (Booking b : booking_list) {
+            if (b.getId().equals(id)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
 }

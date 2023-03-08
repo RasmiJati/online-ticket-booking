@@ -13,15 +13,15 @@ import java.util.Date;
  * @author rasmi
  */
 public class paymentController {
-
+    
     private static paymentRepository paymentRepository;
-
+    
     public static void main(String[] args) {
         Date date = new Date();
         Payment p = new Payment(1L, 1L, date, 4000.00);
         paymentRepository = new paymentRepository();
         paymentRepository.create(p);
         System.out.println(paymentRepository.show());
-                
+        System.out.println(paymentRepository.findById(2L));
     }
 }

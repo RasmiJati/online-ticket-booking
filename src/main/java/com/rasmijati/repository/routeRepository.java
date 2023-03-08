@@ -27,4 +27,13 @@ public class routeRepository {
     public List<Route> show() {
         return route_list;
     }
+    
+    public Route findById(Long id){
+        for(Route r : route_list){
+            if(r.getId().equals(id)){
+                return r;
+            }
+        }
+        return null;
+    }
 }

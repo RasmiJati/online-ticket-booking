@@ -27,4 +27,13 @@ public class paymentRepository {
     public List<Payment> show() {
         return payment_list;
     }
+
+    public Payment findById(Long id) {
+        for (Payment p : payment_list) {
+            if (p.getId().equals(id)) {
+                return p;
+            }
+        }
+        return null;
+    }
 }

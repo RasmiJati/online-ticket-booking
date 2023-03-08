@@ -13,14 +13,15 @@ import java.util.Date;
  * @author rasmi
  */
 public class bookingController {
-
+    
     private static bookingRepository bookingRepository;
-
+    
     public static void main(String[] args) {
         Date date = new Date();
         Booking b = new Booking(1L, 2L, 1L, 1L, date, 25L, 3500.00);
         bookingRepository = new bookingRepository();
         bookingRepository.create(b);
         System.out.println(bookingRepository.show());
+        System.out.println(bookingRepository.findById(1L));
     }
 }

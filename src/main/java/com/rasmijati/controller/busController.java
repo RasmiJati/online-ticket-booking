@@ -22,6 +22,7 @@ public class busController {
         busRepository.create(b);
         busRepository.create(b1);
         System.out.println(busRepository.show());
+        System.out.println(busRepository.findBusByTd(1L));
     }
 
 }
