@@ -4,7 +4,7 @@
  */
 package com.rasmijati.repository;
 
-import com.rasmijati.model.Bus;
+import com.rasmijati.model.Payment;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,19 +12,19 @@ import java.util.List;
  *
  * @author rasmi
  */
-public class busRepository {
+public class paymentRepository {
 
-    private final List<Bus> bus_list;
+    private List<Payment> payment_list;
 
-    public busRepository() {
-        bus_list = new ArrayList<>();
+    public paymentRepository() {
+        payment_list = new ArrayList<>();
     }
 
-    public void create(Bus b) {
-        this.bus_list.add(b);
+    public void create(Payment p) {
+        this.payment_list.add(p);
     }
 
-    public List<Bus> show() {
-        return bus_list;
+    public List<Payment> show() {
+        return payment_list;
     }
 }

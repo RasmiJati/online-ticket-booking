@@ -60,9 +60,5 @@ public class Payment {
     @Override
     public String toString() {
         return "Payment{" + "id=" + id + ", booking_id=" + booking_id + ", date=" + date + ", amount=" + amount + '}';
-    }
-        
-    public void show(){
-        System.out.println(toString());
-    }    
+    }   
 }

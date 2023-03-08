@@ -91,8 +91,4 @@ public class Booking {
     public String toString() {
         return "Booking{" + "id=" + id + ", user_id=" + user_id + ", bus_id=" + bus_id + ", route_id=" + route_id + ", date=" + date + ", seats=" + seats + ", fare=" + fare + '}';
     }
-    
-   public void show(){
-       System.out.println(toString());
-   } 
 }

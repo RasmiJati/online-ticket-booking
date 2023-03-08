@@ -59,8 +59,4 @@ public class Route {
     public String toString() {
         return "Route{" + "id=" + id + ", starting_point=" + starting_point + ", destination=" + destination + ", distance=" + distance + "km" +'}';
     }
-    
-    public void show(){
-        System.out.println(toString());
-    }
 }

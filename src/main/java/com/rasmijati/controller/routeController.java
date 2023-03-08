@@ -6,6 +6,7 @@
 package com.rasmijati.controller;
 
 import com.rasmijati.model.Route;
+import com.rasmijati.repository.routeRepository;
 
 /**
  *
@@ -13,9 +14,13 @@ import com.rasmijati.model.Route;
  */
 public class routeController {
 
+    private static routeRepository routeRepository;
+    
     public static void main(String[] args) {
         Route r = new Route(1L,"ktm","bkt",100L);
-        r.show();
+        
+        routeRepository = new routeRepository();
+        routeRepository.create(r);
+        System.out.println(routeRepository.show());
     }
-    
 }

@@ -4,7 +4,7 @@
  */
 package com.rasmijati.repository;
 
-import com.rasmijati.model.Bus;
+import com.rasmijati.model.Route;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,19 +12,19 @@ import java.util.List;
  *
  * @author rasmi
  */
-public class busRepository {
+public class routeRepository {
 
-    private final List<Bus> bus_list;
+    private List<Route> route_list;
 
-    public busRepository() {
-        bus_list = new ArrayList<>();
+    public routeRepository() {
+        route_list = new ArrayList<>();
     }
 
-    public void create(Bus b) {
-        this.bus_list.add(b);
+    public void create(Route r) {
+        this.route_list.add(r);
     }
 
-    public List<Bus> show() {
-        return bus_list;
+    public List<Route> show() {
+        return route_list;
     }
 }
