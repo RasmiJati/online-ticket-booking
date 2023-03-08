@@ -5,17 +5,17 @@
 
 package com.rasmijati.controller;
 
-import com.rasmijati.model.Payment;
-import java.util.Date;
+import com.rasmijati.model.Route;
 
 /**
  *
  * @author rasmi
  */
-public class PaymentController {
+public class routeController {
+
     public static void main(String[] args) {
-        Date date = new Date();
-        Payment p = new Payment(1L, 1L, date, 4000.00);
-        p.show();
+        Route r = new Route(1L,"ktm","bkt",100L);
+        r.show();
     }
+    
 }

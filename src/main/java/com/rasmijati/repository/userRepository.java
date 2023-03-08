@@ -13,11 +13,11 @@ import java.util.List;
  *
  * @author rasmi
  */
-public class UserRepository {
+public class userRepository {
 
     private List<User> ulist;    // empty list
 
-    public UserRepository() {
+    public userRepository() {
         ulist = new ArrayList<>();     //create list's object
     }
     

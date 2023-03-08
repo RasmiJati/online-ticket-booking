@@ -5,17 +5,17 @@
 
 package com.rasmijati.controller;
 
-import com.rasmijati.model.Route;
+import com.rasmijati.model.Booking;
+import java.util.Date;
 
 /**
  *
  * @author rasmi
  */
-public class RouteController {
-
+public class bookingController {
     public static void main(String[] args) {
-        Route r = new Route(1L,"ktm","bkt",100L);
-        r.show();
+        Date date = new Date();
+        Booking b = new Booking(1L, 2L, 1L, 1L, date , 25L, 3500.00);
+        b.show();
     }
-    
 }

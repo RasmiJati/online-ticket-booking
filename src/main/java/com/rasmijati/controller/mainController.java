@@ -5,16 +5,12 @@
 
 package com.rasmijati.controller;
 
-import com.rasmijati.model.Bus;
-
 /**
  *
  * @author rasmi
  */
-public class BusController {
+public class mainController {
     public static void main(String[] args) {
-        Bus b = new Bus(1L,"2527","super",25L);
-        b.show();
+        System.out.println("Success");
     }
-    
 }

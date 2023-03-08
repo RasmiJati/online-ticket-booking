@@ -5,17 +5,16 @@
 
 package com.rasmijati.controller;
 
-import com.rasmijati.model.Booking;
-import java.util.Date;
+import com.rasmijati.model.Bus;
 
 /**
  *
  * @author rasmi
  */
-public class BookingController {
+public class busController {
     public static void main(String[] args) {
-        Date date = new Date();
-        Booking b = new Booking(1L, 2L, 1L, 1L, date , 25L, 3500.00);
-        b.show();
+        Bus b = new Bus(1L,"2527","super",25L);
+//        b.show();
     }
+    
 }

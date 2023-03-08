@@ -5,12 +5,17 @@
 
 package com.rasmijati.controller;
 
+import com.rasmijati.model.Payment;
+import java.util.Date;
+
 /**
  *
  * @author rasmi
  */
-public class MainController {
+public class paymentController {
     public static void main(String[] args) {
-        System.out.println("Success");
+        Date date = new Date();
+        Payment p = new Payment(1L, 1L, date, 4000.00);
+        p.show();
     }
 }

@@ -5,18 +5,18 @@
 package com.rasmijati.controller;
 
 import com.rasmijati.model.User;
-import com.rasmijati.repository.UserRepository;
+import com.rasmijati.repository.userRepository;
 
 /**
  *
  * @author rasmi
  */
-public class UserController {
+public class userController {
 
-    private static UserRepository userRepository;
+    private static userRepository userRepository;
 
     public static void main(String[] args) {
-        userRepository = new UserRepository();
+        userRepository = new userRepository();
         User u = new User(1L, "rasmi", "rasmiasga", "684646546", "rasahgsa");
         User u1 = new User(1L, "rasmi", "rasmiasga", "684646546", "rasahgsa");
 

@@ -59,8 +59,4 @@ public class Bus {
     public String toString() {
         return "Bus{" + "id=" + id + ", number=" + number + ", type=" + type + ", seats=" + seats + '}';
     }
-    
-    public void show(){
-        System.out.println(toString());
-    }
 }
