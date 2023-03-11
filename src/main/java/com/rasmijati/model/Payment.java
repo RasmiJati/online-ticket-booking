@@ -13,10 +13,10 @@ import java.util.Date;
  */
 public class Payment {
 
-    Long id;
-    Long booking_id;
-    Date date;
-    Double amount;
+    private Long id;
+    private Long booking_id;
+    private Date date;
+    private Double amount;
 
     public Payment(Long id, Long booking_id, Date date, Double amount) {
         this.id = id;

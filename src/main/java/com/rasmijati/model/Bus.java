@@ -11,10 +11,10 @@ package com.rasmijati.model;
  */
 public class Bus {
 
-    Long id;
-    String number;
-    String type;
-    Long seats;
+    private Long id;
+    private String number;
+    private String type;
+    private Long seats;
 
     public Bus(Long id, String number, String type, Long seats) {
         this.id = id;

@@ -9,11 +9,11 @@ package com.rasmijati.model;
  * @author rasmi
  */
 public class User {
-     Long id;
-     String name;
-     String email;
-     String phone;
-     String password;
+     private Long id;
+     private String name;
+     private String email;
+     private String phone;
+     private String password;
 
     public User() {
     }

@@ -11,10 +11,10 @@ package com.rasmijati.model;
  */
 public class Route {
 
-    Long id;
-    String starting_point;
-    String destination;
-    Long distance;  /*int*/
+    private Long id;
+    private String starting_point;
+    private String destination;
+    private Long distance;  /*int*/
 
     public Route(Long id, String starting_point, String destination, Long distance) {
         this.id = id;

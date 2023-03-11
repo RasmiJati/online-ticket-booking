@@ -13,13 +13,13 @@ import java.util.Date;
  */
 public class Booking {
 
-    Long id;
-    Long user_id;
-    Long bus_id;
-    Long route_id;
-    Date date;
-    Long seats;
-    Double fare;
+    private Long id;
+    private Long user_id;
+    private Long bus_id;
+    private Long route_id;
+    private Date date;
+    private Long seats;
+    private Double fare;
 
     public Booking(Long id, Long user_id, Long bus_id, Long route_id, Date date, Long seats, Double fare) {
         this.id = id;
