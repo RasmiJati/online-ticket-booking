@@ -38,5 +38,9 @@ public class userController {
         userRepository.delete(u);
         System.out.println("Show Users after deleting : ");
         System.out.println(userRepository.show());
+
+        userRepository.edit(u1);
+        System.out.println("After edit" + userRepository.show());
+
     }
 }

@@ -7,6 +7,7 @@ package com.rasmijati.repository;
 import com.rasmijati.model.User;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  *
@@ -36,9 +37,35 @@ public class userRepository {
         }
         return null;
     }
-    
-    public void delete(User u){
+
+    public void delete(User u) {
         this.ulist.remove(u);
     }
 
+    public void edit(User u) {
+
+        ulist.stream()
+                .filter(x -> x.getId()
+                .equals(u.getId()))
+                .forEach(user -> {
+//                    user.setName(u.getName());
+                    user.setName("Hello");
+
+                    user.setEmail("hello@");
+                    user.setPhone("98685");
+                    user.setPassword("hghfgyjt");
+                });
+        
+//        Predicate<User> p = new Predicate<User>() {  //predicate --> inerface
+//            @Override
+//            public boolean test(User t) {
+//                if(t.getId().equals(u.getId())){
+//                return false;
+//            }
+//        };
+
+// Predicate<User> p = t -> t.getId()
+//                              .equals(u.getId())
+//            
+    }
 }
