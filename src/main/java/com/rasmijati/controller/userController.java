@@ -65,6 +65,11 @@ public class userController {
         
         User u = new User(id,name,email,phone,password);
         userRepository.create(u);  // create method of userRepository
-        System.out.println(userRepository.show());
+        
+//        System.out.println(userRepository.show());   // displayed in list format
+
+          userRepository.show().stream().forEach(x -> System.out.println(x)); //1st load the user list in stream and fetch one value at a time using for each
+          
+          
     }
 }
