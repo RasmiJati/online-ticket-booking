@@ -7,7 +7,6 @@ package com.rasmijati.repository;
 import com.rasmijati.model.User;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  *

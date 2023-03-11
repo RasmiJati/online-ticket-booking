@@ -38,8 +38,21 @@ public class bookingRepository {
         return null;
     }
 
-    
-    public void delete(Booking  b){
+    public void delete(Booking b) {
         this.booking_list.remove(b);
+    }
+
+    public void edit(Booking b) {
+        booking_list.stream()
+                .filter(x -> x.getId()
+                .equals(b.getId()))
+                .forEach(x -> {
+                    x.setBus_id(b.getBus_id());
+                    x.setRoute_id(b.getRoute_id());
+                    x.setUser_id(b.getUser_id());
+                    x.setDate(b.getDate());
+                    x.setSeats(b.getSeats());
+                    x.setFare(b.getFare());
+                });
     }
 }

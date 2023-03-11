@@ -28,7 +28,7 @@ public class busRepository {
         return bus_list;
     }
 
-    public Bus findBusByTd(Long id) {
+    public Bus findBusById(Long id) {
         for (Bus b : bus_list) {
             if (b.getId().equals(id)) {
                 return b;
@@ -37,7 +37,19 @@ public class busRepository {
         return null;
     }
 
-    public void delete(Bus b){
+    public void delete(Bus b) {
         this.bus_list.remove(b);
+    }
+
+    public void edit(Bus b) {
+        bus_list.stream()
+                .filter(x -> x.getId()
+                .equals(b.getId()))
+                .forEach(x -> {
+                x.setNumber(b.getNumber());
+                x.setSeats(b.getSeats());
+                x.setType(b.getType());
+                }
+                );
     }
 }

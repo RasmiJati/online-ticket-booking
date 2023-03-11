@@ -67,7 +67,7 @@ public class userController {
             System.out.println("Enter User id : ");
             String uid = sc.next();
             try {
-                id = Long.valueOf(uid);
+                id = Long.parseLong(uid);
             } catch (NumberFormatException e) {
                 System.err.println("Error");
                 id = null;
@@ -105,7 +105,9 @@ public class userController {
 
     public static void list() {
         System.out.println("............All Users List..................");
-        userRepository.show().stream().forEach(x -> System.out.println(x)); //1st load the user list in stream and fetch one value at a time using for each
+        userRepository.show()
+                .stream()
+                .forEach(x -> System.out.println(x)); //1st load the user list in stream and fetch one value at a time using for each
     }
 
     public static void delete() {

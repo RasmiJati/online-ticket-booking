@@ -27,18 +27,28 @@ public class routeRepository {
     public List<Route> show() {
         return route_list;
     }
-    
-    public Route findById(Long id){
-        for(Route r : route_list){
-            if(r.getId().equals(id)){
+
+    public Route findById(Long id) {
+        for (Route r : route_list) {
+            if (r.getId().equals(id)) {
                 return r;
             }
         }
         return null;
     }
-    
-    public void delete(Route r){
+
+    public void delete(Route r) {
         this.route_list.remove(r);
     }
-    
+
+    public void edit(Route r) {
+        route_list.stream()
+                .filter(x -> x.getId()
+                .equals(r.getId()))
+                .forEach(x ->{
+                    x.setDistance(r.getDistance());
+                    x.setStarting_point(r.getStarting_point());
+                    x.setDestination(r.getDestination());
+                });
+    }
 }

@@ -14,9 +14,9 @@ public class Bus {
     private Long id;
     private String number;
     private String type;
-    private Long seats;
+    private String seats;
 
-    public Bus(Long id, String number, String type, Long seats) {
+    public Bus(Long id, String number, String type, String seats) {
         this.id = id;
         this.number = number;
         this.type = type;
@@ -47,11 +47,11 @@ public class Bus {
         this.type = type;
     }
 
-    public Long getSeats() {
+    public String getSeats() {
         return seats;
     }
 
-    public void setSeats(Long seats) {
+    public void setSeats(String seats) {
         this.seats = seats;
     }
 

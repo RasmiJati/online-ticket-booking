@@ -40,5 +40,16 @@ public class paymentRepository {
     public void delete(Payment p){
         this.payment_list.remove(p);
     }
+    
+    public void edit(Payment p){
+        payment_list.stream()
+                .filter(x->x.getId()
+                .equals(p.getId()))
+                .forEach(x-> {
+                    x.setBooking_id(p.getBooking_id());
+                    x.setDate(p.getDate());
+                    x.setAmount(p.getAmount());
+                });
+    }
 
 }
