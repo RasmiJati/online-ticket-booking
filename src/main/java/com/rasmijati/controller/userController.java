@@ -6,6 +6,7 @@ package com.rasmijati.controller;
 
 import com.rasmijati.model.User;
 import com.rasmijati.repository.userRepository;
+import java.util.Scanner;
 
 /**
  *
@@ -17,30 +18,53 @@ public class userController {
 
     public static void main(String[] args) {
         userRepository = new userRepository();
+        create();   // create method user controller
+    }
 
-        User u = new User(1L, "rasmi", "rasmi@", "1111111111", "1111");
-        User u1 = new User(2L, "asmi", "asmi@", "2222222222", "2222");
-        User u2 = new User(3L, "smit", "smit@", "3333333333", "3333");
-        User u3 = new User(4L, "rasmita", "rasmita@", "444444444", "4444");
-
-        System.out.println("Creating Users");
-        userRepository.create(u);
-        userRepository.create(u1);
-        userRepository.create(u2);
-        userRepository.create(u3);
-
-        System.out.println("Find All Users : ");
+    public static void create() {   // static methods beacuse the method can be called using the class name in other class
+        Long id = null;
+        String name = null;
+        String email = null;
+        String phone = null;
+        String password = null;
+        Scanner sc = new Scanner(System.in);
+        while(id == null){
+            System.out.println("Enter User id : ");
+            String uid = sc.next();
+            try{
+                id = Long.valueOf(uid);
+            }catch(NumberFormatException e){
+                System.err.println("Error");
+                id = null;
+            }
+        }
+        
+        while(name == null || name.isEmpty()){
+            System.out.println("Enter user name : ");
+            name = sc.next();
+            break;
+        }
+        
+        while(email == null || email.isEmpty()){
+            System.out.println("Enter user email : ");
+            email = sc.next();
+            break;
+        }
+        
+        while(phone == null || phone.isEmpty()){
+            System.out.println("Enter phone : ");
+            phone = sc.next();
+            break;
+        }
+        
+        while(password == null || password.isEmpty()){
+            System.out.println("Enter password : ");
+            password = sc.next();
+            break;
+        }
+        
+        User u = new User(id,name,email,phone,password);
+        userRepository.create(u);  // create method of userRepository
         System.out.println(userRepository.show());
-
-        System.out.println("Find Users by id: ");
-        System.out.println(userRepository.findUserById(2L));
-
-        userRepository.delete(u);
-        System.out.println("Show Users after deleting : ");
-        System.out.println(userRepository.show());
-
-        userRepository.edit(u1);
-        System.out.println("After edit" + userRepository.show());
-
     }
 }
