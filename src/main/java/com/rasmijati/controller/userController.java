@@ -20,6 +20,7 @@ public class userController {
         userRepository = new userRepository();
         create();   // create method user controller
         list();
+        delete();
     }
 
     public static void create() {   // static methods beacuse the method can be called using the class name in other class
@@ -75,4 +76,19 @@ public class userController {
     public static void list() {
         userRepository.show().stream().forEach(x -> System.out.println("All Users List : " + x)); //1st load the user list in stream and fetch one value at a time using for each
     }
+    
+    public static void delete(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter User's Id: ");
+        Long id = sc.nextLong();
+        User user = userRepository.findUserById(id);
+        if(user == null){
+            System.out.println("User's ID "+ id + " not found");
+        }else{
+            userRepository.delete(user);
+            System.out.println("User of id "+id+" deleted succesfully!!");
+            list();
+        }
+    }   
+
 }
