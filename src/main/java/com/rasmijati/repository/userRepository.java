@@ -48,12 +48,10 @@ public class userRepository {
                 .filter(x -> x.getId()
                 .equals(u.getId()))
                 .forEach(user -> {
-//                    user.setName(u.getName());
-                    user.setName("Hello");
-
-                    user.setEmail("hello@");
-                    user.setPhone("98685");
-                    user.setPassword("hghfgyjt");
+                    user.setName(u.getName());
+                    user.setEmail(u.getEmail());
+                    user.setPhone(u.getPhone());
+                    user.setPassword(u.getPassword());
                 });
         
 //        Predicate<User> p = new Predicate<User>() {  //predicate --> inerface
