@@ -36,4 +36,9 @@ public class routeRepository {
         }
         return null;
     }
+    
+    public void delete(Route r){
+        this.route_list.remove(r);
+    }
+    
 }

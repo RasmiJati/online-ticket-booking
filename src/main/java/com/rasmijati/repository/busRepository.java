@@ -37,4 +37,7 @@ public class busRepository {
         return null;
     }
 
+    public void delete(Bus b){
+        this.bus_list.remove(b);
+    }
 }

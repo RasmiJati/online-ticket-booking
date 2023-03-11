@@ -36,4 +36,9 @@ public class paymentRepository {
         }
         return null;
     }
+
+    public void delete(Payment p){
+        this.payment_list.remove(p);
+    }
+
 }

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class userRepository {
 
-    private List<User> ulist;    // empty list
+    private List<User> ulist;    // empty list of type user
 
     public userRepository() {
         ulist = new ArrayList<>();     //create list's object
@@ -35,6 +35,10 @@ public class userRepository {
             }
         }
         return null;
+    }
+    
+    public void delete(User u){
+        this.ulist.remove(u);
     }
 
 }

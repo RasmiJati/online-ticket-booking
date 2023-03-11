@@ -38,4 +38,8 @@ public class bookingRepository {
         return null;
     }
 
+    
+    public void delete(Booking  b){
+        this.booking_list.remove(b);
+    }
 }
