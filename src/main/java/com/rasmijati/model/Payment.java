@@ -15,10 +15,10 @@ public class Payment {
 
     private Long id;
     private Long booking_id;
-    private Date date;
+    private String date;
     private Double amount;
 
-    public Payment(Long id, Long booking_id, Date date, Double amount) {
+    public Payment(Long id, Long booking_id, String date, Double amount) {
         this.id = id;
         this.booking_id = booking_id;
         this.date = date;
@@ -41,11 +41,11 @@ public class Payment {
         this.booking_id = booking_id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -59,6 +59,6 @@ public class Payment {
 
     @Override
     public String toString() {
-        return "Payment{" + "id=" + id + ", booking_id=" + booking_id + ", date=" + date + ", amount=" + amount + '}';
+        return "id=" + id + ", booking_id=" + booking_id + ", date=" + date + ", amount=" + amount;
     }   
 }

@@ -14,9 +14,9 @@ public class Route {
     private Long id;
     private String starting_point;
     private String destination;
-    private Long distance;  /*int*/
+    private String distance;  /*int*/
 
-    public Route(Long id, String starting_point, String destination, Long distance) {
+    public Route(Long id, String starting_point, String destination, String distance) {
         this.id = id;
         this.starting_point = starting_point;
         this.destination = destination;
@@ -47,16 +47,16 @@ public class Route {
         this.destination = destination;
     }
 
-    public Long getDistance() {
+    public String getDistance() {
         return distance;
     }
 
-    public void setDistance(Long distance) {
+    public void setDistance(String distance) {
         this.distance = distance;
     }
 
     @Override
     public String toString() {
-        return "Route{" + "id=" + id + ", starting_point=" + starting_point + ", destination=" + destination + ", distance=" + distance + "km" +'}';
+        return "id=" + id + ", starting_point=" + starting_point + ", destination=" + destination + ", distance=" + distance + "km";
     }
 }

@@ -5,8 +5,6 @@
 
 package com.rasmijati.model;
 
-import java.util.Date;
-
 /**
  *
  * @author rasmi
@@ -17,11 +15,11 @@ public class Booking {
     private Long user_id;
     private Long bus_id;
     private Long route_id;
-    private Date date;
+    private String date;
     private Long seats;
     private Double fare;
 
-    public Booking(Long id, Long user_id, Long bus_id, Long route_id, Date date, Long seats, Double fare) {
+    public Booking(Long id, Long user_id, Long bus_id, Long route_id, String date, Long seats, Double fare) {
         this.id = id;
         this.user_id = user_id;
         this.bus_id = bus_id;
@@ -63,11 +61,11 @@ public class Booking {
         this.route_id = route_id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -89,6 +87,6 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" + "id=" + id + ", user_id=" + user_id + ", bus_id=" + bus_id + ", route_id=" + route_id + ", date=" + date + ", seats=" + seats + ", fare=" + fare + '}';
+        return "id=" + id + ", user_id=" + user_id + ", bus_id=" + bus_id + ", route_id=" + route_id + ", date=" + date + ", seats=" + seats + ", fare=" + fare;
     }
 }
