@@ -4,8 +4,11 @@
  */
 package com.rasmijati.controller;
 
+import com.rasmijati.model.Booking;
 import com.rasmijati.model.Payment;
+import com.rasmijati.repository.bookingRepository;
 import com.rasmijati.repository.paymentRepository;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,9 +18,11 @@ import java.util.Scanner;
 public class paymentController {
 
     private static paymentRepository paymentRepository;
+    private static bookingRepository bookingRepository;
 
-    public static void main(String[] args) {
-        paymentRepository = new paymentRepository();
+    public void crudOption(paymentRepository paymentRepository, bookingRepository bookingRepository) {
+        this.paymentRepository = paymentRepository;
+        this.bookingRepository = bookingRepository;
         Scanner sc = new Scanner(System.in);
 
         String choice;
@@ -60,7 +65,7 @@ public class paymentController {
 
     public static void create() {
         Long id = null;
-        Long booking_id = null;
+        Booking booking = null;
         String date = null;
         Double amount = null;
         Scanner sc = new Scanner(System.in);
@@ -75,14 +80,16 @@ public class paymentController {
             }
         }
 
-        while (booking_id == null) {
-            System.out.println("Enter booking id : ");
-            String uid = sc.next();
-            try {
-                booking_id = Long.parseLong(uid);
-            } catch (Exception e) {
-                System.err.println("Error");
+        List<Booking> bookings = bookingRepository.show();
+        while (booking == null) {
+            System.out.println("--------User Info----------- : ");
+            System.out.println(bookings);
+            Long booking_id = null;
+            while (booking_id == null) {
+                System.out.println("Enter user id : ");
+                booking_id = sc.nextLong();
             }
+            booking = bookingRepository.findById(booking_id);
         }
 
         while (date == null || date.isEmpty()) {
@@ -96,7 +103,8 @@ public class paymentController {
             amount = sc.nextDouble();
             break;
         }
-        Payment p = new Payment(id, booking_id, date, amount);
+        Payment p = new Payment(id, booking, date, amount);
+        p.setBooking(booking);
         paymentRepository.create(p);
         System.out.println("Payment Created successfully");
     }
@@ -124,7 +132,7 @@ public class paymentController {
 
     public static void edit() {
         Long id = null;
-        Long booking_id = null;
+        Booking booking = null;
         String date = null;
         Double amount = null;
         Scanner sc = new Scanner(System.in);
@@ -134,14 +142,17 @@ public class paymentController {
         if (p == null) {
             System.out.println("Payment of Id" + id + " not found ");
         } else {
-            while (booking_id == null) {
-                System.out.println("Enter booking id : ");
-                String uid = sc.next();
-                try {
-                    booking_id = Long.parseLong(uid);
-                } catch (Exception e) {
-                    System.err.println("Error");
+            List<Booking> bookings = bookingRepository.show();
+            while (booking == null) {
+                System.out.println("--------User Info----------- : ");
+                System.out.println(bookings);
+                Long booking_id = null;
+                while (booking_id == null) {
+                    System.out.println("Enter user id : ");
+                    booking_id = sc.nextLong();
                 }
+                booking = bookingRepository.findById(booking_id);
+
             }
 
             while (date == null || date.isEmpty()) {
@@ -156,7 +167,8 @@ public class paymentController {
                 break;
             }
         }
-        Payment pay = new Payment(id, booking_id, date, amount);
+        Payment pay = new Payment(id, booking, date, amount);
+        pay.setBooking(booking);
         paymentRepository.edit(pay);
         System.out.println("Payment edited successfully");
     }

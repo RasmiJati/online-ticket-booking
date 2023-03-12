@@ -13,13 +13,13 @@ import java.util.Objects;
 public class Payment {
 
     private Long id;
-    private Long booking_id;
+    private Booking booking;
     private String date;
     private Double amount;
 
-    public Payment(Long id, Long booking_id, String date, Double amount) {
+    public Payment(Long id, Booking booking, String date, Double amount) {
         this.id = id;
-        this.booking_id = booking_id;
+        this.booking = booking;
         this.date = date;
         this.amount = amount;
     }
@@ -32,12 +32,12 @@ public class Payment {
         this.id = id;
     }
 
-    public Long getBooking_id() {
-        return booking_id;
+    public Booking getBooking() {
+        return booking;
     }
 
-    public void setBooking_id(Long booking_id) {
-        this.booking_id = booking_id;
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
     public String getDate() {
@@ -60,7 +60,7 @@ public class Payment {
     public int hashCode() {
         int hash = 7;
         hash = 53 * hash + Objects.hashCode(this.id);
-        hash = 53 * hash + Objects.hashCode(this.booking_id);
+        hash = 53 * hash + Objects.hashCode(this.booking);
         hash = 53 * hash + Objects.hashCode(this.date);
         hash = 53 * hash + Objects.hashCode(this.amount);
         return hash;
@@ -81,7 +81,7 @@ public class Payment {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.booking_id, other.booking_id)) {
+        if (!Objects.equals(this.booking, other.booking)) {
             return false;
         }
         return Objects.equals(this.amount, other.amount);
@@ -89,6 +89,6 @@ public class Payment {
 
     @Override
     public String toString() {
-        return "id=" + id + ", booking_id=" + booking_id + ", date=" + date + ", amount=" + amount;
+        return "id=" + id + ", booking=" + booking + ", date=" + date + ", amount=" + amount;
     }
 }

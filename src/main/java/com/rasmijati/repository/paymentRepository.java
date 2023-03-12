@@ -46,7 +46,7 @@ public class paymentRepository {
                 .filter(x->x.getId()
                 .equals(p.getId()))
                 .forEach(x-> {
-                    x.setBooking_id(p.getBooking_id());
+                    x.setBooking(p.getBooking());
                     x.setDate(p.getDate());
                     x.setAmount(p.getAmount());
                 });

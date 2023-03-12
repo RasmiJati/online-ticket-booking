@@ -47,9 +47,9 @@ public class bookingRepository {
                 .filter(x -> x.getId()
                 .equals(b.getId()))
                 .forEach(x -> {
-                    x.setBus_id(b.getBus_id());
-                    x.setRoute_id(b.getRoute_id());
-                    x.setUser_id(b.getUser_id());
+                    x.setBus(b.getBus());
+                    x.setRoute(b.getRoute());
+                    x.setUser(b.getUser());
                     x.setDate(b.getDate());
                     x.setSeats(b.getSeats());
                     x.setFare(b.getFare());

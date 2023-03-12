@@ -16,8 +16,8 @@ public class busController {
 
     private static busRepository busRepository;
 
-    public static void main(String[] args) {
-        busRepository = new busRepository();
+    public void crudOption(busRepository busRepository) {
+        this.busRepository =busRepository;
         Scanner sc = new Scanner(System.in);
         String choice;
         do {

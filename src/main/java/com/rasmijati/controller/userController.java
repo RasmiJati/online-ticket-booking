@@ -16,8 +16,8 @@ public class userController {
 
     private static userRepository userRepository;
 
-    public static void main(String[] args) {
-        userRepository = new userRepository();
+    public void crudOption(userRepository userRepository) {
+        this.userRepository = userRepository;
         Scanner sc = new Scanner(System.in);
         String choice;
         do {
@@ -108,6 +108,11 @@ public class userController {
         userRepository.show()
                 .stream()
                 .forEach(x -> System.out.println(x)); //1st load the user list in stream and fetch one value at a time using for each
+    
+//    Iterator<User> i = userRepository.show().iterator();
+//        while (i.hasNext()) {
+//            User user = i.next();
+//            System.out.println(user);
     }
 
     public static void delete() {

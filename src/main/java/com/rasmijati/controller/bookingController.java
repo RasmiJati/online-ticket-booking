@@ -5,7 +5,14 @@
 package com.rasmijati.controller;
 
 import com.rasmijati.model.Booking;
+import com.rasmijati.model.Bus;
+import com.rasmijati.model.Route;
+import com.rasmijati.model.User;
 import com.rasmijati.repository.bookingRepository;
+import com.rasmijati.repository.busRepository;
+import com.rasmijati.repository.routeRepository;
+import com.rasmijati.repository.userRepository;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,9 +22,15 @@ import java.util.Scanner;
 public class bookingController {
 
     private static bookingRepository bookingRepository;
+    private static userRepository userRepository;
+    private static busRepository busRepository;
+    private static routeRepository routeRepository;
 
-    public static void main(String[] args) {
-        bookingRepository = new bookingRepository();
+    public void crudOption(bookingRepository bookingRepository, userRepository userRepository, busRepository busRepository, routeRepository routeRepository) {
+        this.bookingRepository = bookingRepository;
+        this.userRepository = userRepository;
+        this.busRepository = busRepository;
+        this.routeRepository = routeRepository;
         Scanner sc = new Scanner(System.in);
 
         String choice;
@@ -53,15 +66,17 @@ public class bookingController {
                     return;
                 default:
                     System.out.println("Invalid Option");
+                    break;
             }
+            System.out.println();
         } while (!choice.equals("0"));
     }
 
     public static void create() {
         Long id = null;
-        Long user_id = null;
-        Long bus_id = null;
-        Long route_id = null;
+        User user = null;
+        Bus bus = null;
+        Route route = null;
         String date = null;
         Long seats = null;
         Double fare = null;
@@ -78,34 +93,40 @@ public class bookingController {
             }
         }
 
-        while (user_id == null) {
-            System.out.println("Enter user id : ");
-            String uid = sc.next();
-            try {
-                user_id = Long.parseLong(uid);
-            } catch (Exception e) {
-                System.err.println("Error");
+        List<User> users = userRepository.show();
+        while (user == null) {
+            System.out.println("--------User Info----------- : ");
+            System.out.println(users);
+            Long user_id = null;
+            while (user_id == null) {
+                System.out.println("Enter user id : ");
+                user_id = sc.nextLong();
             }
+            user = userRepository.findUserById(user_id);
         }
 
-        while (bus_id == null) {
-            System.out.println("Enter bus id : ");
-            String bid = sc.next();
-            try {
-                bus_id = Long.parseLong(bid);
-            } catch (Exception e) {
-                System.err.println("Error");
+        List<Bus> buses = busRepository.show();
+        while (bus == null) {
+            System.out.println("--------Bus Info----------- : ");
+            System.out.println(buses);
+            Long bus_id = null;
+            while (bus_id == null) {
+                System.out.println("Enter bus id : ");
+                bus_id = sc.nextLong();
             }
+            bus = busRepository.findBusById(bus_id);
         }
 
-        while (route_id == null) {
-            System.out.println("Enter route id : ");
-            String rid = sc.next();
-            try {
-                route_id = Long.parseLong(rid);
-            } catch (Exception e) {
-                System.err.println("Error");
+        List<Route> routes = routeRepository.show();
+        while (route == null) {
+            System.out.println("--------Route Info----------- : ");
+            System.out.println(routes);
+            Long route_id = null;
+            while (route_id == null) {
+                System.out.println("Enter route id : ");
+                route_id = sc.nextLong();
             }
+            route = routeRepository.findById(route_id);
         }
 
         while (date == null || date.isEmpty()) {
@@ -126,7 +147,10 @@ public class bookingController {
             break;
         }
 
-        Booking book = new Booking(id, user_id, bus_id, route_id, date, seats, fare);
+        Booking book = new Booking(id, user, bus, route, date, seats, fare);
+        book.setUser(user);
+        book.setBus(bus);
+        book.setRoute(route);
         bookingRepository.create(book);
         System.out.println("Booking created successfully");
     }
@@ -154,9 +178,9 @@ public class bookingController {
 
     public static void edit() {
         Long id = null;
-        Long user_id = null;
-        Long bus_id = null;
-        Long route_id = null;
+        User user = null;
+        Bus bus = null;
+        Route route = null;
         String date = null;
         Long seats = null;
         Double fare = null;
@@ -167,34 +191,40 @@ public class bookingController {
         if (b == null) {
             System.out.println("Booking of Id" + id + " not found ");
         } else {
-            while (user_id == null) {
-                System.out.println("Enter user id : ");
-                String uid = sc.next();
-                try {
-                    user_id = Long.parseLong(uid);
-                } catch (Exception e) {
-                    System.err.println("Error");
+            List<User> users = userRepository.show();
+            while (user == null) {
+                System.out.println("--------User Info----------- : ");
+                System.out.println(users);
+                Long user_id = null;
+                while (user_id == null) {
+                    System.out.println("Enter user id : ");
+                    user_id = sc.nextLong();
                 }
+                user = userRepository.findUserById(user_id);
             }
 
-            while (bus_id == null) {
-                System.out.println("Enter bus id : ");
-                String bid = sc.next();
-                try {
-                    bus_id = Long.parseLong(bid);
-                } catch (Exception e) {
-                    System.err.println("Error");
+            List<Bus> buses = busRepository.show();
+            while (bus == null) {
+                System.out.println("--------Bus Info----------- : ");
+                System.out.println(buses);
+                Long bus_id = null;
+                while (bus_id == null) {
+                    System.out.println("Enter bus id : ");
+                    bus_id = sc.nextLong();
                 }
+                bus = busRepository.findBusById(bus_id);
             }
 
-            while (route_id == null) {
-                System.out.println("Enter route id : ");
-                String rid = sc.next();
-                try {
-                    route_id = Long.parseLong(rid);
-                } catch (Exception e) {
-                    System.err.println("Error");
+            List<Route> routes = routeRepository.show();
+            while (route == null) {
+                System.out.println("--------Route Info----------- : ");
+                System.out.println(routes);
+                Long route_id = null;
+                while (route_id == null) {
+                    System.out.println("Enter route id : ");
+                    route_id = sc.nextLong();
                 }
+                route = routeRepository.findById(route_id);
             }
 
             while (date == null || date.isEmpty()) {
@@ -215,7 +245,10 @@ public class bookingController {
                 break;
             }
 
-            Booking book = new Booking(id, user_id, bus_id, route_id, date, seats, fare);
+            Booking book = new Booking(id, user, bus, route, date, seats, fare);
+            book.setUser(user);
+            book.setBus(bus);
+            book.setRoute(route);
             bookingRepository.edit(book);
             System.out.println("Booking edited successfully");
         }

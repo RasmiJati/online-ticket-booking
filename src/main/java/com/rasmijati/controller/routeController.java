@@ -16,8 +16,8 @@ public class routeController {
 
     private static routeRepository routeRepository;
 
-    public static void main(String[] args) {
-        routeRepository = new routeRepository();
+    public void crudOption(routeRepository routeRepository) {
+        this.routeRepository = routeRepository;
 
         Scanner sc = new Scanner(System.in);
 

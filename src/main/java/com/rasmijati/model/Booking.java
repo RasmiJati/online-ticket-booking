@@ -13,18 +13,18 @@ import java.util.Objects;
 public class Booking {
 
     private Long id;
-    private Long user_id;
-    private Long bus_id;
-    private Long route_id;
+    private User user;
+    private Bus bus;
+    private Route route;
     private String date;
     private Long seats;
     private Double fare;
 
-    public Booking(Long id, Long user_id, Long bus_id, Long route_id, String date, Long seats, Double fare) {
+    public Booking(Long id, User user, Bus bus, Route route, String date, Long seats, Double fare) {
         this.id = id;
-        this.user_id = user_id;
-        this.bus_id = bus_id;
-        this.route_id = route_id;
+        this.user = user;
+        this.bus = bus;
+        this.route = route;
         this.date = date;
         this.seats = seats;
         this.fare = fare;
@@ -38,28 +38,28 @@ public class Booking {
         this.id = id;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getBus_id() {
-        return bus_id;
+    public Bus getBus() {
+        return bus;
     }
 
-    public void setBus_id(Long bus_id) {
-        this.bus_id = bus_id;
+    public void setBus(Bus bus) {
+        this.bus = bus;
     }
 
-    public Long getRoute_id() {
-        return route_id;
+    public Route getRoute() {
+        return route;
     }
 
-    public void setRoute_id(Long route_id) {
-        this.route_id = route_id;
+    public void setRoute(Route route) {
+        this.route = route;
     }
 
     public String getDate() {
@@ -90,9 +90,9 @@ public class Booking {
     public int hashCode() {
         int hash = 7;
         hash = 47 * hash + Objects.hashCode(this.id);
-        hash = 47 * hash + Objects.hashCode(this.user_id);
-        hash = 47 * hash + Objects.hashCode(this.bus_id);
-        hash = 47 * hash + Objects.hashCode(this.route_id);
+        hash = 47 * hash + Objects.hashCode(this.user);
+        hash = 47 * hash + Objects.hashCode(this.bus);
+        hash = 47 * hash + Objects.hashCode(this.route);
         hash = 47 * hash + Objects.hashCode(this.date);
         hash = 47 * hash + Objects.hashCode(this.seats);
         hash = 47 * hash + Objects.hashCode(this.fare);
@@ -114,13 +114,13 @@ public class Booking {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.user_id, other.user_id)) {
+        if (!Objects.equals(this.user, other.user)) {
             return false;
         }
-        if (!Objects.equals(this.bus_id, other.bus_id)) {
+        if (!Objects.equals(this.bus, other.bus)) {
             return false;
         }
-        if (!Objects.equals(this.route_id, other.route_id)) {
+        if (!Objects.equals(this.route, other.route)) {
             return false;
         }
         if (!Objects.equals(this.seats, other.seats)) {
@@ -131,6 +131,6 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "id=" + id + ", user_id=" + user_id + ", bus_id=" + bus_id + ", route_id=" + route_id + ", date=" + date + ", seats=" + seats + ", fare=" + fare;
+        return "id=" + id + ", user_id=" + user + ", bus_id=" + bus + ", route_id=" + route + ", date=" + date + ", seats=" + seats + ", fare=" + fare;
     }
 }
