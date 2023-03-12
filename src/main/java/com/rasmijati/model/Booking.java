@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package com.rasmijati.model;
+
+import java.util.Objects;
 
 /**
  *
@@ -83,6 +84,49 @@ public class Booking {
 
     public void setFare(Double fare) {
         this.fare = fare;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.id);
+        hash = 47 * hash + Objects.hashCode(this.user_id);
+        hash = 47 * hash + Objects.hashCode(this.bus_id);
+        hash = 47 * hash + Objects.hashCode(this.route_id);
+        hash = 47 * hash + Objects.hashCode(this.date);
+        hash = 47 * hash + Objects.hashCode(this.seats);
+        hash = 47 * hash + Objects.hashCode(this.fare);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Booking)) {
+            return false;
+        }
+        final Booking other = (Booking) obj;
+        if (!Objects.equals(this.date, other.date)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.user_id, other.user_id)) {
+            return false;
+        }
+        if (!Objects.equals(this.bus_id, other.bus_id)) {
+            return false;
+        }
+        if (!Objects.equals(this.route_id, other.route_id)) {
+            return false;
+        }
+        if (!Objects.equals(this.seats, other.seats)) {
+            return false;
+        }
+        return Objects.equals(this.fare, other.fare);
     }
 
     @Override
